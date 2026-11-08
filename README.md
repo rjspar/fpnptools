@@ -8,7 +8,7 @@ Interne webapp van FP&P (straks op tools.fpnp.nl). Alles staat achter een login.
 |---|---|---|
 | Home met de &-fly-through | iedereen | klaar |
 | AI literacy: leerlijn + 3 modules | iedereen | klaar |
-| LinkedIn-versterker | grasmaaiers + partners | in aanbouw (fase 2) |
+| LinkedIn-versterker | grasmaaiers + partners | posts lezen + intekenen klaar; mails volgen |
 | Governance (DACI) | partners, met extra code | na 10 december (fase 3) |
 
 ## Eenmalige setup
@@ -26,6 +26,12 @@ Interne webapp van FP&P (straks op tools.fpnp.nl). Alles staat achter een login.
 4. Optioneel: **Authentication → Providers → Email:** zet "Email OTP Expiration" op 600 seconden.
 
 > De ingebouwde mailer van Supabase verstuurt maar een paar mails per uur. Voor 15 mensen is dat krap. Koppel daarom bij Authentication → SMTP een eigen afzender, bijvoorbeeld Resend (gratis tot 3.000 mails per maand).
+
+### 1b. LinkedIn-versterker
+1. Supabase → SQL Editor: plak `supabase/linkedin.sql` en klik Run.
+2. Google Cloud: serviceaccount met de Google Sheets API aan, JSON-sleutel gemaakt. Deel de Odiv-sheet als **Lezer** met het mailadres van het serviceaccount.
+3. Vercel: `GOOGLE_SERVICE_ACCOUNT_JSON` = de volledige inhoud van het JSON-bestand (geheim).
+4. Optioneel in de sheet: een kolom met kop **Link**, waar Odiv de link naar de live post in plakt.
 
 ### 2. Vercel
 1. **Add New → Project:** importeer de GitHub-repo `rjspar/fpnptools`.

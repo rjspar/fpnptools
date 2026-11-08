@@ -31,7 +31,7 @@ export default async function Home() {
                 <span className="tag mono">Grasmaaiers</span>
                 <h3>LinkedIn-versterker</h3>
                 <p>Zie welke posts eraan komen, teken in en zet je reactie klaar. Op de dag zelf krijg je hem per mail.</p>
-                <span className="go">In aanbouw →</span>
+                <span className="go">Komende posts →</span>
               </Link>
             ) : null}
             {hasRole(member, "partner") ? (
