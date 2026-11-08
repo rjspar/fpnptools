@@ -73,10 +73,11 @@ export default async function ModulePage({ params }: PageProps<"/ai-literacy/[sl
             {mod.files.length ? (
               <section style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <h2>Bestanden</h2>
+                {mod.filesIntro ? <p className="muted">{mod.filesIntro}</p> : null}
                 <div className="files">
                   {mod.files.map((f) => (
                     <a key={f.name} href={`/api/files/${f.name}`}>
-                      <span>.md · download</span>
+                      <span>.md · {f.hint}</span>
                       {f.label}
                     </a>
                   ))}

@@ -26,7 +26,8 @@ export type Module = {
   intro: string[];
   steps: string[]; // **vet** mag
   prompts: Prompt[];
-  files: { name: string; label: string }[];
+  files: { name: string; label: string; hint: string }[];
+  filesIntro?: string;
   note?: string;
 };
 
@@ -42,19 +43,20 @@ export const MODULES: Module[] = [
     ],
     steps: [
       "**Zet drie voorbeelden klaar.** Voor LinkedIn: drie posts die je goed vindt (van jezelf of van anderen). Voor mail: drie eigen mails waar je tevreden over bent, zonder namen en gevoelige gegevens.",
-      "**Open een nieuw gesprek** in Claude, Gemini of ChatGPT en plak de interviewprompt hieronder. Reken op ongeveer 20 minuten.",
+      "**Open een nieuw gesprek** in Claude, Gemini of ChatGPT. Klik hieronder op ‘Kopieer prompt’ en plak die in het gesprek. Reken op ongeveer 20 minuten.",
       "**Beantwoord de 14 vragen.** Geef liever een echte zin dan een omschrijving. Inspreken mag ook.",
       "**Bewaar het eindbestand** als stem-linkedin.md of stem-mail.md.",
-      "**Zet het vast.** In Claude maak je een Project, in Gemini een Gem, in ChatGPT een eigen GPT. Plak je stemprofiel in de instructies en voeg de ILS-referentie toe als kennisbestand. Daarna vraag je gewoon: schrijf een post over…",
+      "**Zet het vast.** In Claude maak je een Project, in Gemini een Gem, in ChatGPT een eigen GPT. Plak je stemprofiel in de instructies en voeg de ILS-referentie (download onderaan) toe als kennisbestand. Daarna vraag je gewoon: schrijf een post over…",
     ],
     prompts: [
       { title: "Interview: LinkedIn-stem", fromFile: "interview-linkedin-stem.md" },
       { title: "Interview: e-mailstijl", fromFile: "interview-emailstijl.md" },
     ],
+    filesIntro: "Optioneel. Heb je de prompt hierboven gekopieerd, dan heb je de interviewbestanden niet nodig. De ILS-referentie gebruik je wel bij stap 5.",
     files: [
-      { name: "interview-linkedin-stem.md", label: "Interview LinkedIn-stem" },
-      { name: "interview-emailstijl.md", label: "Interview e-mailstijl" },
-      { name: "impeccable-leadership-referentie.md", label: "Impeccable Leadership-referentie" },
+      { name: "impeccable-leadership-referentie.md", label: "Impeccable Leadership-referentie", hint: "Nodig bij stap 5" },
+      { name: "interview-linkedin-stem.md", label: "Interview LinkedIn-stem", hint: "Optioneel · zelfde als de prompt" },
+      { name: "interview-emailstijl.md", label: "Interview e-mailstijl", hint: "Optioneel · zelfde als de prompt" },
     ],
     note: "Liever geen vast Project? Upload je stemprofiel en de ILS-referentie aan het begin van een nieuw gesprek. Dat werkt in elke AI-tool.",
   },
